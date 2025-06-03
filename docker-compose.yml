@@ -68,7 +68,7 @@ services:
     environment:
       - TZ=America/Los_Angeles # e.g., "America/New_York"
     volumes:
-      - "${HOME_ASSISTANT_CONFIG}:/config" # Replace with actual path
+      - "${HOME_ASSISTANT_CONFIG}:/config"
       - /run/dbus:/run/dbus:ro
     env_file:
       - path: .env
