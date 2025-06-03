@@ -27,6 +27,7 @@ services:
       - /dev/dri/renderD128:/dev/dri/renderD128
     networks:
       - lan
+
   mc:
     image: itzg/minecraft-server
     container_name: minecraft
@@ -36,7 +37,7 @@ services:
       OVERRIDE_SERVER_PROPERTIES: "false"
       ENFORCE_WHITELIST: "true"
       SNOOPER_ENABLED: "false"
-      MEMORY: "4G"
+      MEMORY: 3G
       TYPE: "PAPER"
       PAPER_CHANNEL: "experimental"
       VERSION: "1.21.5"
@@ -49,6 +50,7 @@ services:
     ports:
       # :25565 is default minecraft server port
       - "25565:25565"
+      # for bedrock people
       - "19132:19132/udp"
     volumes:
       - "${MINECRAFT_DATA}:/data"
@@ -57,3 +59,22 @@ services:
     env_file:
       - path: .env
         required: true
+
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:stable
+    privileged: true
+    restart: unless-stopped
+    environment:
+      - TZ=America/Los_Angeles # e.g., "America/New_York"
+    volumes:
+      - "${HOME_ASSISTANT_CONFIG}:/config" # Replace with actual path
+      - /run/dbus:/run/dbus:ro
+    env_file:
+      - path: .env
+        required: true
+    networks:
+      - lan
+    ports:
+      # this is the default but setting this here for clarity
+      - "8123:8123"
