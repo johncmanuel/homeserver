@@ -80,7 +80,7 @@ services:
       - "8123:8123"
 
   chatpardy:
-    image: ghcr.io/johncmanuel/chatpardy-server:latest
+    image: ghcr.io/johncmanuel/chatpardy:latest
     restart: unless-stopped
     container_name: chatpardy
     volumes:
