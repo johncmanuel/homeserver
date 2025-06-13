@@ -79,10 +79,10 @@ services:
       # this is the default but setting this here for clarity
       - "8123:8123"
 
-  chatpardy-backend:
+  chatpardy:
     image: ghcr.io/johncmanuel/chatpardy-server:latest
     restart: unless-stopped
-    container_name: chatpardy-backend
+    container_name: chatpardy
     volumes:
       - "${CHATPARDY_DB_PATH}:/app"
     environment:
@@ -93,12 +93,5 @@ services:
     env_file:
       - path: .env
         required: true
-
-  chatpardy-frontend:
-    image: ghcr.io/johncmanuel/chatpardy-client:latest
-    restart: unless-stopped
-    container_name: chatpardy-frontend
-    networks:
-      - lan
-    depends_on:
-      - chatpardy-backend
+    ports:
+      - "8080:80"
