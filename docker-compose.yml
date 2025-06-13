@@ -83,8 +83,9 @@ services:
     image: ghcr.io/johncmanuel/chatpardy:latest
     restart: unless-stopped
     container_name: chatpardy
+    user: "${UID}:${GID}"
     volumes:
-      - "${CHATPARDY_DB_PATH}:/app"
+      - "${CHATPARDY_DB_PATH}:/app/Database"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:80
