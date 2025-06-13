@@ -84,7 +84,7 @@ services:
     restart: unless-stopped
     container_name: chatpardy-backend
     volumes:
-      - chatpardy_sqlite_data:/app
+      - "${CHATPARDY_DB_PATH}:/app"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:80
