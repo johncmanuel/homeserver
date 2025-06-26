@@ -35,12 +35,14 @@ services:
       EULA: "true"
       # server properties file will be created upon first initialization
       OVERRIDE_SERVER_PROPERTIES: "false"
+      WHITELIST_FILE: "/data/whitelist.json"
+      OPS_FILE: "/data/ops.json"
       ENFORCE_WHITELIST: "true"
       SNOOPER_ENABLED: "false"
       MEMORY: 3G
       TYPE: "PAPER"
       PAPER_CHANNEL: "experimental"
-      VERSION: "1.21.5"
+      VERSION: "1.21.6"
       # geyser allows bedrock players to connect to java server
       # floodgate allows xbox players to connect as well
       # note: it uses spigot
@@ -54,6 +56,8 @@ services:
       - "19132:19132/udp"
     volumes:
       - "${MINECRAFT_DATA}:/data"
+      - "${MINECRAFT_DATA}/whitelist.json:/data/whitelist.json"
+      - "${MINECRAFT_DATA}/ops.json:/data/ops.json"
     networks:
       - lan
     env_file:
