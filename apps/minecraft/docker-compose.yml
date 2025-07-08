@@ -1,0 +1,34 @@
+services:
+  mc:
+    image: itzg/minecraft-server
+    container_name: minecraft
+    environment:
+      EULA: "true"
+      # server properties file will be created upon first initialization
+      OVERRIDE_SERVER_PROPERTIES: "false"
+      WHITELIST_FILE: "/data/whitelist.json"
+      OPS_FILE: "/data/ops.json"
+      ENFORCE_WHITELIST: "true"
+      SNOOPER_ENABLED: "false"
+      MEMORY: 3G
+      TYPE: "PAPER"
+      PAPER_CHANNEL: "experimental"
+      VERSION: "1.21.6"
+      # geyser allows bedrock players to connect to java server
+      # floodgate allows xbox players to connect as well
+      # note: it uses spigot
+      PLUGINS: |
+        https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
+        https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
+    ports:
+      # :25565 is default minecraft server port
+      - "25565:25565"
+      # for bedrock people
+      - "19132:19132/udp"
+    volumes:
+      - "${MINECRAFT_DATA}:/data"
+      - "${MINECRAFT_DATA}/whitelist.json:/data/whitelist.json"
+      - "${MINECRAFT_DATA}/ops.json:/data/ops.json"
+    env_file:
+      - path: .env
+        required: true
