@@ -9,9 +9,6 @@ services:
     volumes:
       - "${HOME_ASSISTANT_CONFIG}:/config"
       - /run/dbus:/run/dbus:ro
-    env_file:
-      - path: .env
-        required: true
     ports:
       # this is the default but setting this here for clarity
       - "8123:8123"

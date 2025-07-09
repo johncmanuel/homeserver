@@ -29,6 +29,3 @@ services:
       - "${MINECRAFT_DATA}:/data"
       - "${MINECRAFT_DATA}/whitelist.json:/data/whitelist.json"
       - "${MINECRAFT_DATA}/ops.json:/data/ops.json"
-    env_file:
-      - path: .env
-        required: true

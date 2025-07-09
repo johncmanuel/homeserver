@@ -9,8 +9,5 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:80
-    env_file:
-      - path: .env
-        required: true
     ports:
       - "8080:80"

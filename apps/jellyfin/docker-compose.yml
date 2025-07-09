@@ -16,8 +16,5 @@ services:
         source: "${JELLYFIN_TV}"
         target: /media/tv
     restart: unless-stopped
-    env_file:
-      - path: .env
-        required: true
     devices:
       - /dev/dri/renderD128:/dev/dri/renderD128
