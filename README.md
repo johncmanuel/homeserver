@@ -1,6 +1,6 @@
 # personal server
 
-only for use in a local network, for now
+only for use in a local network accessible via tailscale
 
 ## todo
 
