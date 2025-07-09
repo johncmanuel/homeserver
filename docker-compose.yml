@@ -8,3 +8,4 @@ include:
   - path: ./apps/homeassistant/docker-compose.yml
   - path: ./apps/chatpardy/docker-compose.yml
   - path: ./apps/portainer/docker-compose.yml
+  - path: ./apps/memos/docker-compose.yml
