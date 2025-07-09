@@ -1,12 +1,10 @@
-# john's media server
+# personal server
 
 only for use in a local network, for now
 
 ## todo
 
-1. use local domain name (seems a bit too extra but lets do it for learning!)
-  1. maybe throw in SSL cert 
-2. make this remotely accessible with authorized devices via tailscale vpn
+reduce number of env variables
 
 ## setup
 
