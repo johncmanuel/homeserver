@@ -7,5 +7,4 @@ include:
   - path: ./apps/minecraft/docker-compose.yml
   - path: ./apps/homeassistant/docker-compose.yml
   - path: ./apps/chatpardy/docker-compose.yml
-  - path: ./apps/portainer/docker-compose.yml
   - path: ./apps/actualbudget/docker-compose.yml
