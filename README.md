@@ -28,3 +28,11 @@ to start:
 to end
 
 `docker compose down`
+
+## using HTTPS
+
+Enable HTTPS for tailscale in the admin settings. If no domain, use the one provided by tailscale (e.g., `hostname.<random words>.ts.net`).
+
+After that, run `sudo tailscale cert <domain give by tailscale>` to generate a TLS certificate for the server (your `hostname`).
+
+Then run `sudo tailscale serve <port number of service you want HTTPS>` and access it at `https://hostname.<random words>.ts.net` (a reverse proxy *may* work if you want to serve multiple services with HTTPS at same domain, AFAIK)
